@@ -1,4 +1,6 @@
 from PIL import Image, ImageDraw
+from datetime import datetime
+from test import *
 
 IMG_WIDTH = 1000
 IMG_HEIGHT = 500
@@ -13,9 +15,9 @@ time_patterns = {
     6: [1, 1, 0, 0],
     7: [0, 1, 0, 1],
     8: [0, 0, 1, 1],
-    9: [1, 0, 1, 1],
-    10: [1, 1, 1, 0],
-    11: [1, 1, 0, 1]
+    9: [1, 1, 1, 0],
+    10: [1, 1, 0, 1],
+    11: [0, 1, 1, 1]
 }
 
 image = Image.new('RGB', (IMG_WIDTH, IMG_HEIGHT), '#000000')
@@ -73,9 +75,14 @@ def convert_time_stamp(time_stamp):
 
 base_y = IMG_HEIGHT / 2
 
-time_stamp = '10:53'
+now = datetime.now()
 
-converted_time = convert_time_stamp(time_stamp)
+current_time = now.strftime("%H:%M")
+
+time_stamp = (return_random_time())
+print(time_stamp)
+
+converted_time = convert_time_stamp(time_stamp=time_stamp)
 
 coords_x = [200, 600, 800]
 
